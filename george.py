@@ -5,13 +5,13 @@ class George():
   def __init__(self, mr_python):
     self.mr_python =mr_python
     #all the other methods can talk to the servosix board by saying self.mr_python.set_servo
-    self.delay=0.15
+    self.delay=0.1
     self.kitties=[
-      Kitty(mr_python,1,40,70),
-      Kitty(mr_python,2,20,50),
-      Kitty(mr_python,3,40,70),
-      Kitty(mr_python,4,45,75),
-      Kitty(mr_python,5,50,85)
+      Kitty(mr_python,1,41,66),
+      Kitty(mr_python,2,20,45),
+      Kitty(mr_python,3,39,64),
+      Kitty(mr_python,4,44,69),
+      Kitty(mr_python,5,53,78)
     ]
     for kitty in self.kitties:
       kitty.attention()
@@ -24,11 +24,14 @@ class George():
       kitty.attention()
     sleep(self.delay)
 
-  def drop(servo, move, home, delay):
-    self.mr_python.set_servo(servo,move)
-    sleep(delay) 
-    self.mr_python.set_servo(servo,home)
-    sleep(delay)
+
+  def drop(self,kitty_numbers):
+    for n in kitty_numbers:
+      self.kitties[n-1].walk()
+    sleep(self.delay)
+    for n in kitty_numbers:
+      self.kitties[n-1].attention()
+    sleep(self.delay)
 
 
 
