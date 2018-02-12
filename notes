@@ -1,0 +1,6 @@
+servo 2 home=20+30=okay
+servo 1 home=40
+servo 3 home=40
+servo 4 home=45
+until
+servo 5 home=50+30+5=okay
